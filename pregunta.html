@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Para Mi Amor</title>
+<style>
+    body {
+        background-color: #fff0f5;
+        font-family: 'Segoe UI', sans-serif;
+        color: #4b0082;
+        text-align: center;
+        padding: 50px;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 2.5em;
+        color: #c71585;
+    }
+    p {
+        font-size: 1.2em;
+        margin: 20px 0;
+    }
+    .botones {
+        margin-top: 30px;
+    }
+    button {
+        background-color: #ff69b4;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1em;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 10px;
+    }
+    button:hover {
+        background-color: #db7093;
+    }
+    #respuesta {
+        font-size: 1.3em;
+        margin-top: 40px;
+        color: #c71585;
+    }
+    .flor {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Cherry_blossom_icon.svg/1024px-Cherry_blossom_icon.svg.png');
+        background-size: cover;
+        animation: caer 10s linear infinite;
+    }
+    @keyframes caer {
+        0% { top: -50px; opacity: 1; }
+        100% { top: 100vh; opacity: 0; }
+    }
+</style>
+</head>
+<body>
+    <h1>Para Mi Amor</h1>
+    <p>Desde que te conocí, cada día tiene sentido. Este proyecto no es solo código, es mi forma de decirte que te amo.</p>
+    <p>Quise crear algo que hablara por mí, que mostrara cuánto significas en mi vida. Cada línea, cada archivo, cada esfuerzo… está dedicado a ti.</p>
+    <p>Gracias por inspirarme a ser mejor, por tu luz, tu ternura y tu fuerza. Te amo profundamente.</p>
+
+    <div class="botones">
+        <button onclick="mostrarRespuesta('si')">Sí 💖</button>
+        <button onclick="mostrarRespuesta('no')">No 😢</button>
+    </div>
+
+    <p id="respuesta"></p>
+
+    <script>
+        function mostrarRespuesta(opcion) {
+            const respuesta = document.getElementById("respuesta");
+            if (opcion === 'si') {
+                respuesta.innerHTML = "¡Sí! 💖 Estoy feliz de compartir este amor contigo.";
+            } else {
+                respuesta.innerHTML = "Lo entiendo 😢, pero mi amor por ti sigue siendo sincero.";
+            }
+        }
+
+        // Generar flores aleatorias
+        function crearFlor() {
+            const flor = document.createElement("div");
+            flor.classList.add("flor");
+            flor.style.left = Math.random() * window.innerWidth + "px";
+            flor.style.animationDuration = (5 + Math.random() * 5) + "s";
+            document.body.appendChild(flor);
+            setTimeout(() => flor.remove(), 10000);
+        }
+
+        setInterval(crearFlor, 500);
+    </script>
+</body>
+</html>
